@@ -177,11 +177,19 @@
             <p><i class="github"></i>GitHub : projext002</p>
           </div>
           <div class="contact-right">
-            <form>
-              <input type="text" name="name" placeholder="Name" required />
+            <div class="alert alert-success alert-dismissible fade show d-none" role="alert">
+              <strong>Thank You!</strong> Your Message Has Been Send..
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <form name="einsril-contact-form">
+              <input type="text" name="nama" placeholder="Name" required />
               <input type="email" name="email" placeholder="Email" required />
-              <textarea name="message" rows="6" placeholder="Message"></textarea>
-              <button type="submit" class="btn btn2">Submit</button>
+              <textarea name="pesan" rows="6" placeholder="Message"></textarea>
+              <button type="submit" class="btn btn2 my-btn">Submit</button>
+              <button class="btn-loading btn-primary d-none btn btn2" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+              </button>
             </form>
           </div>
         </div>
@@ -198,5 +206,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <script src="script.js"></script>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxgbHktdMNAtnjCQYi3L_6sW-XUw5aYo-36BlIJPpmnUFj6XVDlWJuWQH-b6esW3HYU7g/exec';
+      const form = document.forms['einsril-contact-form'];
+      const btnKirim = document.querySelector('.my-btn');
+      const btnLoading = document.querySelector('.btn-loading');
+      const alert = document.querySelector('.alert');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        btnLoading.classList.toggle('d-none');
+        btnKirim.classList.toggle('d-none');
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then((response) => {
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            alert.classList.toggle('d-none');
+            form.reset();
+            console.log('Success!', response);
+          })
+          .catch((error) => console.error('Error!', error.message));
+      });
+    </script>
   </body>
 </html>
