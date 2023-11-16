@@ -5,10 +5,10 @@ const textLoad = () => {
   }, 0);
   setTimeout(() => {
     text.textContent = 'Backend Developer';
-  }, 3000);
+  }, 1000);
   setTimeout(() => {
     text.textContent = `Programmer`;
-  }, 6000);
+  }, 2000);
 };
 textLoad();
-setInterval(textLoad, 9000);
+setInterval(textLoad, 3000);
