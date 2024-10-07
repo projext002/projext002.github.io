@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hidden-button {
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            position: absolute;
+            left: -9999px;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: #000;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 0.5em;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .btn-loading {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-loading:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .custom-alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .alert-dismissible {
+            position: relative;
+            padding-right: 35px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 15px;
+            color: inherit;
+            opacity: 0.5;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+   <div id="header">
+    <div class="container">
+       <nav>
+        <img src=" " class="logo">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+       </nav>
+       <div class="header-text">
+        <div class="container1">
+        <p class="text1">Cyber Security</p>
+        </div>
+        <h1>Hi, I'm <span>Asril</span><br>From Indonesia</h1>
+       </div>
+    </div>
+   </div>
+   <div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/staz3.png" class="img-fluid">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Front-end and back-end developer with a focus on cybersecurity, currently pursuing a degree in information systems. With a passion for creating seamless user experiences and robust server-side solutions, I bring a holistic approach to web development. My expertise spans across various programming languages and frameworks, allowing me to build responsive and secure applications. As a budding cybersecurity enthusiast, I'm constantly exploring new ways to enhance digital safety and protect against emerging threats. My academic journey in information systems complements my practical skills, providing me with a strong foundation in data management and IT infrastructure. I'm always eager to take on new challenges and contribute to innovative projects that push the boundaries of technology.</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Cyber Security</span><br>Kali Linux</li>
+                        <li><span>Front End</span><br>React.js</li>
+                        <li><span>Back end</span><br>Node.js</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2022 - Current</span><br>WEB Development</li>
+                        <li><span>2024 - Current</span><br>Cyber Security</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>System information</span><br>System Information Student</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+   <div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-shield-halved"></i>
+                <h2>Cyber Security</h2>
+                <p>Vulnerability Assessment and Penetration testing
+                </p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-sharp fa-solid fa-crop-simple"></i>
+                <h2>Frontend Dev</h2>
+                <p>Custom React application Development</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-terminal"></i>
+                <h2>Backend Dev</h2>
+                <p>RESTful API Development and Database Integration with nodejs</p>
+                <a href="#">Learn more</a>
+        </div>
+    </div>
+   </div>
+   <div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/Kali.jpg">
+                <div class="layer">
+                    <h3>Kali Linux</h3>
+                    <p>Penetration Testing</p>
+                    <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/portofolio.jpg">
+                <div class="layer">
+                    <h3>Web Dev</h3>
+                    <p>Making Portofolio</p>
+                    <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/nodejs.jpg">
+                <div class="layer">
+                    <h3>Web Dev</h3>
+                    <p>Connecting to MongoDB</p>
+                    <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+   </div>
+   <div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>p2507345@gmail.com</p>
+                <p><i class="fa-brands fa-instagram"></i>@einsril</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <a href="#" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <div id="alertMessage" class="alert" style="display: none;"></div>
+                <form name="einsril-contact-form">
+                    <input type="text" name="nama" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="pesan" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2 my-btn">Submit</button>
+                    <button class="btn-loading btn-primary btn btn2 hidden-button" type="button" disabled>
+                        <span class="spinner" role="status" aria-hidden="true"></span>
+                        Loading...
+                      </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+    </div>
+    <script>
+        const tablinks = document.querySelectorAll(".tab-links");
+        const tabcontents = document.querySelectorAll(".tab-contents");
+
+        function opentab(tabname) {
+            tablinks.forEach(tablink => {
+                tablink.classList.remove("active-link");
+            });
+
+            tabcontents.forEach(tabcontent => {
+                tabcontent.classList.remove("active-tab");
+            });
+
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+    <script>
+        const sidemenu = document.querySelector("sidemenu");
+
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+    <audio id="backgroundMusic" loop>
+     <source src="audio/Lord.Huron-The.Night.We.Met.mp3" type="audio/mpeg">
+     Browser Anda tidak mendukung elemen audio.
+   </audio>
+
+   <div id="musicMessage" style="position: fixed; bottom: 10px; right: 10px; background-color: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 5px; font-size: 14px;">
+     Klik di mana saja untuk memulai musik
+   </div>
+
+   <script>
+     document.addEventListener('DOMContentLoaded', function() {
+       var music = document.getElementById('backgroundMusic');
+       var message = document.getElementById('musicMessage');
+       music.volume = 1.0; // Atur volume (0.0 sampai 1.0)
+       
+       function playMusic() {
+         music.play();
+         message.style.display = 'none';
+       }
+
+       // Mulai musik saat pengguna berinteraksi dengan halaman
+       document.body.addEventListener('click', function() {
+         playMusic();
+         // Hapus event listener setelah musik dimulai
+         document.body.removeEventListener('click', arguments.callee);
+       });
+     });
+   </script>
+       <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxgbHktdMNAtnjCQYi3L_6sW-XUw5aYo-36BlIJPpmnUFj6XVDlWJuWQH-b6esW3HYU7g/exec';
+        const form = document.forms['einsril-contact-form'];
+        const btnKirim = document.querySelector('.my-btn');
+        const btnLoading = document.querySelector('.btn-loading');
+        const alertElement = document.getElementById('alertMessage');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            toggleButton(btnLoading);
+            toggleButton(btnKirim);
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form)
+                // Hapus mode: 'no-cors'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log('Success!', data);
+                toggleButton(btnLoading);
+                toggleButton(btnKirim);
+                showAlert('Pesan berhasil dikirim!');
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                toggleButton(btnLoading);
+                toggleButton(btnKirim);
+                showAlert('Terjadi kesalahan. Silakan coba lagi.', 'error');
+            });
+        });
+
+        function toggleButton(button) {
+            if (button) {
+                button.classList.toggle('hidden-button');
+            }
+        }
+
+        function showAlert(message, type = 'success') {
+            if (alertElement) {
+                alertElement.textContent = message;
+                alertElement.className = `alert ${type === 'error' ? 'alert-danger' : 'alert-success'}`;
+                alertElement.style.display = 'block';
+                setTimeout(hideAlert, 5000);
+            }
+        }
+
+        function hideAlert() {
+            if (alertElement) {
+                alertElement.style.display = 'none';
+            }
+        }
+      </script>
+</body>
+</html>
